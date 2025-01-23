@@ -1,0 +1,218 @@
+/* ===================== */
+/* Basic                 */
+/* ===================== */
+
+*,
+*::before,
+*::after {
+  /* margin: 0; */
+  /* padding: 0; */
+  box-sizing: border-box;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* ===================== */
+/* My CSS                 */
+/* ===================== */
+
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Young+Serif&display=swap');
+
+:root {
+  --space64: 4rem;
+  --space24: 1.5rem;
+  --space32: 2rem;
+  --space40: 2.5rem;
+
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-stone100: hsl(30, 54%, 90%);
+  --clr-stone150: hsl(30, 18%, 87%);
+  --clr-stone600: hsl(30, 10%, 34%);
+  --clr-stone900: hsl(24, 5%, 18%);
+  --clr-brown800: hsl(14, 45%, 36%);
+  --clr-rose800: hsl(332, 51%, 32%);
+  --clr-rose50: hsl(330, 100%, 98%);
+}
+
+body {
+  margin: 0;
+  /* padding: 1rem; */
+  font-family: "Outfit", sans-serif;
+  font-weight: 400;
+}
+
+.container {
+  padding: 0 var(--space32) var(--space32);
+}
+
+.recipe {
+  background-color: var(--clr-white);
+}
+
+.recipe__img {
+  width: 100%;
+}
+
+/* title */
+.recipe__title {
+  font-family: "Young Serif", serif;
+  font-weight: 400;
+  font-size: 1.7rem;
+  /* margin-top: var(--space64); */
+  margin-block: var(--space40) var(--space32);
+}
+
+.recipe__title--main {
+  font-size: 2rem;
+  margin-block: var(--space40) var(--space32);
+  color: var(--clr-stone900);
+}
+
+.recipe__title--section {
+  color: var(--clr-brown800);
+}
+
+.recipe__description {
+  color: var(--clr-stone600);
+}
+
+/* preparation time */
+.recipe__time {
+  background-color: var(--clr-rose50);
+  padding: var(--space24);
+  margin-top: var(--space40);
+  border-radius: 10px;
+}
+
+.recipe__time-title {
+  font-size: 1.2rem;
+  color: var(--clr-rose800);
+  margin: 0;
+  margin-bottom: var(--space24);
+  /* margin-block: var(--space64) var(--space24); */
+}
+
+.recipe__time .recipe__list li::marker {
+  color: var(--clr-rose800);
+}
+
+/* do not know why child(2) */
+.recipe__section:not(:last-child, :nth-child(2)) {
+  padding-bottom: var(--space32);
+  border-bottom: 1px solid var(--clr-stone150);
+}
+
+/* list */
+.recipe__list {
+  margin-block: 0;
+  color: var(--clr-stone600);
+  padding-left: 20px;
+  /* padding-left: 0; */
+  /* margin-block: var(--space32) 0; */
+}
+
+.recipe__list-item {
+  padding-left: var(--space24);
+}
+
+.recipe__list-item::marker {
+  color: var(--clr-brown800);
+}
+
+strong {
+  font-weight: 600;
+}
+
+/* table */
+.recipe__table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: var(--space32);
+}
+
+.recipe__table tr:not(:last-child) {
+  border-bottom: 1px solid var(--clr-stone100);
+}
+
+.recipe__table td:nth-child(2) {
+  color: var(--clr-brown800);
+  font-weight: 600;
+}
+
+.recipe__table td {
+  padding: .5rem 1.5rem;
+  color: var(--clr-stone600);
+}
+
+/* 768 */
+@media screen and (min-width: 500px) {
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clr-stone100);
+  }
+
+  .recipe {
+    /* 733 */
+    max-width: 450px;
+    margin-block: 8.125rem;
+    border-radius: 20px;
+    overflow: hidden;
+    padding-top: var(--space40);
+  }
+
+  .recipe__img {
+
+    /* margin: 0 var(--space40); */
+    /* margin: 0 auto; */
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .recipe__img img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .container {
+    padding: 0 var(--space40) var(--space40);
+  }
+}
