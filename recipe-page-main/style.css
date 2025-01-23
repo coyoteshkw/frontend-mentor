@@ -90,6 +90,10 @@ body {
   width: 100%;
 }
 
+.recipe__img img {
+  /* aspect-ratio: 16/9; */
+}
+
 /* title */
 .recipe__title {
   font-family: "Young Serif", serif;
@@ -192,7 +196,7 @@ strong {
 
   .recipe {
     /* 733 */
-    max-width: 450px;
+    max-width: 730px;
     margin-block: 8.125rem;
     border-radius: 20px;
     overflow: hidden;
@@ -200,16 +204,13 @@ strong {
   }
 
   .recipe__img {
-
-    /* margin: 0 var(--space40); */
-    /* margin: 0 auto; */
-    border-radius: 10px;
+    /* border-radius is calculated based on the original value with padding added */
+    padding-inline: var(--space40);
     overflow: hidden;
   }
 
   .recipe__img img {
-    width: 100%;
-    object-fit: cover;
+    border-radius: 10px;
   }
 
   .container {

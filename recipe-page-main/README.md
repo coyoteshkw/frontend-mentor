@@ -1,89 +1,142 @@
-# Frontend Mentor - Recipe page
+# Frontend Mentor - Recipe page solution
 
-![Design preview for the Recipe page coding challenge](./preview.jpg)
+This is a solution to the [Recipe page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/recipe-page-KiTsR8QQKm). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## Overview
 
-**To do this challenge, you need a basic understanding of HTML and CSS.**
+### Screenshot
 
-## The challenge
+![preview](./preview.jpg)
 
-Your challenge is to build out this recipe page and get it looking as close to the design as possible.
+### Links
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
-Want some support on the challenge? [Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+## My process
 
-## Where to find everything
+### Built with
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- Mobile-first workflow
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+### What I learned
 
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+This is the most difficult time I have ever written code, although I am quite satisfied with the actual effect.
 
-All the required assets for this project are in the `/assets` folder. The images are already exported for the correct screen size and optimized.
+I noticed that on small screen sizes, the `recipe__img` spans the full width, but others not. I am hesitant about how to handle it. Finally I use a `container` wrapper the text content then give it `padding-inline`.(Now I think `recipe__main-container` is a better name. `container` give it some ambiguity led me having some wrong thoughts)
 
-We also include variable and static font files for the required fonts for this project. You can choose to either link to Google Fonts or use the local font files to host the fonts yourself. Note that we've removed the static font files for the font weights that aren't needed for this project.
+Then when screen size is big enough, I make the whole `recipe` card flex and have it centered. For `recipe__img` I give it the same `padding-inline` of `container`
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+> I think this solution is a bit funny, **must be a better way, but I can't think of it.** I learned from Kevin that I can use a grid layout to make a *call-to-action* img, but I had a trouble because I don't know enough about the grid layout, and I doubt whether it is the best solution here(too complex), **so I ended up using this funny but simpler method.** Hopefully I can find a better way by other coders after submitting this assignment
 
-## Building your project
+```css
+.container {
+  padding: 0 var(--space32) var(--space32);
+}
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+@media screen and (min-width: 500px) {
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clr-stone100);
+  }
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+  .recipe {
+    max-width: 730px;
+    margin-block: 8.125rem;
+    border-radius: 20px;
+    overflow: hidden;
+    padding-top: var(--space40);
+  }
 
-## Deploying your project
+  .recipe__img {
+    /* border-radius is calculated based on the original value with padding added */
+    padding-inline: var(--space40);
+    overflow: hidden;
+  }
 
-As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
+  .recipe__img img {
+    border-radius: 10px;
+  }
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+  .container {
+    padding: 0 var(--space40) var(--space40);
+  }
+}
+```
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+- control list-style
 
-## Create a custom `README.md`
+can just use `padding` on **ul(ol)** to push content right. dot not content
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+and `color` on ul also nice. I use `::marker` on li(not ul) to colored dot.
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+```css
+.recipe__list {
+  margin-block: 0;
+  color: var(--clr-stone600);
+  padding-left: 20px;
+}
+.recipe__list-item::marker {
+  color: var(--clr-brown800);
+}
+```
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+- same style (BEM)
 
-## Submitting your solution
+I found that the styles of the titles were all the same, so I used a generic recipe__title and a slightly modified recipe__title--section/main for them. Also for list.
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+- create a table
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+table -> tr -> td. use border-bottom to create divider(and `:not` pseudo element). use `:nth-child` bold right column(**maybe have better solution?**)
 
-## Sharing your solution
+more details on [MDN docs](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element#表格内容)
 
-There are multiple places you can share your solution:
+- border-radius on img
 
-1. Share your solution page in the **#finished-projects** channel of our [community](https://www.frontendmentor.io/community). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+the conflict between padding-inline and border-radius. When adding `padding-inline` to `.recipe__img`, the internal element will reduce its width to adapt to the padding, **but its rounded corners are still calculated based on its original size**, resulting in the rounded corner effect seemingly disappearing.
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
+I asked gpt it give me 2 solutions:
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
+1. give `recipe__img img` a border-radius. So the parent have padding, but child not
 
-## Got feedback for us?
+```css
+  .recipe__img img {
+  width: calc(100% -2 * var(--space32))
+}
+```
 
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
+2. use `calc()` to control img width
 
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
+  ```css
+  .recipe__img img {
+    width: calc(100% -2 * var(--space32))
+  }
+  ```
 
-**Have fun building!** 🚀
+I use solution 1.
+
+### Continued development
+
+the divider and the spacing between them were one of the hardest parts of the whole page. There are many ways to achieve it but it's impossible to know which is the best practice.
+
+Finally I use `recipe__title`'s margin and `recipe__section`'s padding-bottom. section margin-top is zero.
+
+### Useful resources
+
+- [MDN docs](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element#%E8%A1%A8%E6%A0%BC%E5%86%85%E5%AE%B9) - Search table element information.
