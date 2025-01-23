@@ -103,7 +103,7 @@ I found that the styles of the titles were all the same, so I used a generic rec
 
 - create a table
 
-table -> tr -> td. use border-bottom to create divider(and `:not` pseudo element). use `:nth-child` bold right column(**maybe have better solution?**)
+table -> tr -> td. use border-bottom to create divider(and `:not` pseudo element and `border-collapse`). use `:nth-child` bold right column(**maybe have better solution?**)
 
 more details on [MDN docs](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element#表格内容)
 
