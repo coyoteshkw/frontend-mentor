@@ -137,6 +137,18 @@ the divider and the spacing between them were one of the hardest parts of the wh
 
 Finally I use `recipe__title`'s margin and `recipe__section`'s padding-bottom. section margin-top is zero.
 
+- use background-image for header
+
+**top pic can use `background-image`**
+
+```css
+header {
+  background: url(https://mdn.github.io/learning-area/html/multimedia-and-embedding/responsive-images/header.jpg)
+    no-repeat center;
+  height: 200px;
+}
+```
+
 ### Useful resources
 
 - [MDN docs](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element#%E8%A1%A8%E6%A0%BC%E5%86%85%E5%AE%B9) - Search table element information.
