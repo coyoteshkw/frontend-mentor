@@ -102,6 +102,8 @@ And I use block rather than inline-block on this challenge's button, because it 
 
 When switching to the large screen layout I found that the margin of the main text part could not support the entire right half. I didn't know how to deal with em units, so I finally decided to use fixed width and height. I hope there is a better way, thank you very much
 
+![error](./images/Snipaste_2025-01-27_00-26-58.png)
+
 ```css
 @media screen and (min-width: 600px) {
   .card {

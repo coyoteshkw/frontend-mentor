@@ -171,7 +171,7 @@ body {
   background-color: var(--darker-cyan);
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 718px) {
   .card {
     display: grid;
     grid-template-columns: 1fr 1fr;
