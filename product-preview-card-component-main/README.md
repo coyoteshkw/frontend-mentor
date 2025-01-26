@@ -28,8 +28,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [solution URL here](https://your-solution-url.com)
-- Live Site URL: [live site URL here](https://your-live-site-url.com)
+- Solution URL: [solution URL here](https://github.com/coyoteshkw/frontend-mentor/tree/main/product-preview-card-component-main)
+- Live Site URL: [live site URL here](https://coyoteshkw.github.io/frontend-mentor/product-preview-card-component-main/)
 
 ## My process
 
