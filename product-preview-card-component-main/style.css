@@ -171,13 +171,11 @@ body {
   background-color: var(--darker-cyan);
 }
 
-@media screen and (min-width: 718px) {
+@media screen and (min-width: 600px) {
   .card {
     display: grid;
     grid-template-columns: 1fr 1fr;
     max-width: 600px;
     max-height: 449px;
   }
-
-  /* 尝试动态字体 */
 }
