@@ -75,8 +75,6 @@ I think limiting the image size is a better option but I don't know how to do it
   .card {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    max-width: 600px;
-    max-height: 449px;
   }
 }
 ```
@@ -100,15 +98,16 @@ And I use block rather than inline-block on this challenge's button, because it 
 }
 ```
 
-When switching to the large screen layout I found that the margin of the main text part could not support the entire right half. I didn't know how to deal with em units, so I finally decided to use fixed width and height. I hope there is a better way, thank you very much
-
-![error](./images/Snipaste_2025-01-27_00-26-58.png)
+Use height:100% on img/source. not only on picture tag.
 
 ```css
 @media screen and (min-width: 600px) {
-  .card {
-    max-width: 600px;
-    max-height: 449px;
+  .card__img {
+    height: 100%;
+  }
+  .card__img img,
+  .card__img source {
+    height: 100%;
   }
 }
 ```
@@ -120,3 +119,7 @@ Finally, it's stupid but use `min-height: 100vh` make flex/grid layout really ce
 - [responsive picture | web.dev](https://web.dev/learn/design/responsive-images?hl=zh-cn)
 - [1-Line Layouts](https://1linelayouts.glitch.me/) - How to create common layouts with less code
 - [typography | web.dev](https://web.dev/learn/design/typography?hl=zh-cn#scaling_text) - something about typography
+
+## thanks
+
+this guy's [solution](https://github.com/Yemima20/component-product_preview_card) help me so much.

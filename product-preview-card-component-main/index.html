@@ -24,36 +24,49 @@
 </head>
 
 <body>
-  <div class="card">
-    <div class="card__img">
-      <picture>
-        <source media="(min-width: 718px)" srcset="./images/image-product-desktop.jpg">
+  <header></header>
+  <main>
+    <div class="card">
+      <!-- <div class="card__img"> -->
+      <picture class="card__img">
+        <source media="(min-width: 500px)" srcset="./images/image-product-desktop.jpg">
         <img src="./images/image-product-mobile.jpg" alt="product image">
       </picture>
-    </div>
+      <!-- </div> -->
+      <!-- <img class="card__img" src="images/image-product-mobile.jpg" alt="product-img" width="686" height="480"
+        srcset="images/image-product-mobile.jpg 300w, images/image-product-desktop.jpg 600w" fetchpriority="high" /> -->
 
-    <div class="card__text">
-      <p class="card__subtitle">Perfume</p>
+      <div class="card__text">
+        <p class="card__subtitle">Perfume</p>
 
-      <h2 class="card__title">Gabrielle Essence Eau De Parfum</h2>
+        <h2 class="card__title">Gabrielle Essence Eau De Parfum</h2>
 
-      <p class="card__description">
-        A floral, solar and voluptuous interpretation composed by Olivier Polge,
-        Perfumer-Creator for the House of CHANEL.
-      </p>
+        <p class="card__description">
+          A floral, solar and voluptuous interpretation composed by Olivier Polge,
+          Perfumer-Creator for the House of CHANEL.
+        </p>
 
-      <div class="card__price-container">
-        <span class="card__price--discount">$149.99</span>
-        <span class="card__price">$169.99</span>
+        <div class="card__price-container">
+          <span class="card__price--discount">$149.99</span>
+          <span class="card__price">$169.99</span>
+        </div>
+
+        <a href="#" class="card__button">
+          <img src="./images/icon-cart.svg" alt="shopping icon in button">
+          Add to Cart
+        </a>
       </div>
 
-      <a href="#" class="card__button">
-        <img src="./images/icon-cart.svg" alt="shopping icon in button">
-        Add to Cart
-      </a>
     </div>
+  </main>
 
-  </div>
+  <footer class="attribution">
+    Challenge by
+    <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
+      Frontend Mentor
+    </a>
+    . Coded by Gloriaza.
+  </footer>
 
 </body>
 
