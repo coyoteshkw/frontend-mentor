@@ -85,6 +85,24 @@ I learned CSS Grid by [this course](https://cssgrid.io/) and [this article](http
 
 the description in card has different line numbers. Leading to different height. I fixed it to 2 line height and 30ch width so always the same.(*But if the text exceeds two lines, there will still be problems, but I finally decided to do it this way. If there is a better way, please tell me*)
 
+I tried inline style, it's fresh.
+
+```css
+.card {
+  border-top: 5px solid var(--border-color, var(--blue));
+}
+```
+
+```html
+<div class="card" style="--border-color: var(--cyan)">
+  <div class="card__text">
+    <h3 class="card__title">Supervisor</h3>
+    <p class="card__desc">Monitors activity to identify project roadblocks</p>
+  </div>
+  <img class="card__img" src="./images/icon-supervisor.svg" alt="icon-supervisor">
+</div>
+```
+
 ### Continued development
 
 more and more responsive knowledge!
