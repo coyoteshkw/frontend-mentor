@@ -227,6 +227,7 @@ body {
 @media screen and (min-width: 750px) {
   body {
     margin-block: 7rem;
+    margin-block: 10%;
   }
 
   .main {
