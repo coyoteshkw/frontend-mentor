@@ -1,0 +1,301 @@
+/* ======================= *\
+* reset css
+/* ======================= */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* ======================= *\
+* my css
+/* ======================= */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
+
+:root {
+  --moderate-violet: hsl(263, 55%, 52%);
+  --very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --very-dark-blackish-blue: hsl(219, 29%, 14%);
+  --white: hsl(0, 0%, 100%);
+  --light-gray: hsl(0, 0%, 81%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+body {
+  background: var(--light-grayish-blue);
+  margin: 4.5rem 1.5rem;
+  font-size: 13px;
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+/* ======================= *\
+* utility
+/* ======================= */
+.bg-violet {
+  background: var(--moderate-violet);
+}
+
+.bg-dark-blackish-blue {
+  background: var(--very-dark-grayish-blue);
+}
+
+.bg-white {
+  background: var(--white);
+}
+
+.bg-dark-grayish-blue {
+  background: var(--very-dark-blackish-blue);
+}
+
+.text-black {
+  color: var(--very-dark-blackish-blue);
+}
+
+/* ======================= *\
+* main
+/* ======================= */
+.main {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(fit-content, minmax(255px, 1fr));
+  /* grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)); */
+  /* align-content: start; */
+  /* align-items: start; */
+  min-width: 340px;
+  max-width: 500px;
+  margin-inline: auto;
+}
+
+/* ======================= *\
+* card
+/* ======================= */
+.card {
+  display: grid;
+  gap: 22px;
+  /* align-content: space-between; */
+  padding: 2rem;
+  color: var(--white);
+  border-radius: 10px;
+  position: relative;
+}
+
+.card>* {
+  margin: 0;
+  /* make pseudo class under card main content */
+  z-index: 2;
+}
+
+.card:nth-child(1)::after {
+  content: '';
+  background-image: url(./images/bg-pattern-quotation.svg);
+  position: absolute;
+  right: 32px;
+  width: 104px;
+  height: 96px;
+  z-index: 1;
+}
+
+/* card but background is white */
+.card--white {
+  color: var(--very-dark-grayish-blue);
+}
+
+.card__person-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  /* align-self: start; */
+}
+
+.card__person-info p {
+  margin: 0;
+}
+
+.card__person-info img {
+  /* width: 15%; */
+  /* box-sizing: content-box; */
+  width: calc(32px + 2vw);
+  width: calc(36px + 2vw);
+  border-radius: 50%;
+  border: 3px solid var(--border-color, rgba(255, 255, 255, .5));
+}
+
+.card__name,
+.card__state {
+  font-size: clamp(12px, .45rem + 2vw, 1.2rem);
+}
+
+.card__state {
+  opacity: 50%;
+}
+
+.card h2 {
+  font-size: clamp(1rem, calc(.85rem + 2vw), 1.8rem);
+  font-weight: 600;
+}
+
+.card__review {
+  font-size: clamp(13px, calc(5px + 2vw), 20px);
+  opacity: 70%;
+}
+
+@media screen and (min-width: 750px) {
+  .main {
+    /* grid-template-rows: repeat(auto-fill, 1fr); */
+    /* grid-template-rows: repeat(4, 1fr); */
+    grid-template-rows: repeat(fit-content, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    max-width: none;
+  }
+
+  .card:nth-child(1)::after {
+    content: '';
+    background-image: url(./images/bg-pattern-quotation.svg);
+    position: absolute;
+    right: 50px;
+    width: 100px;
+    height: 100px;
+    z-index: 1;
+  }
+
+  .card:nth-child(1) {
+    grid-row: span 2;
+    /* grid-column: span 2; */
+  }
+
+  .card:nth-child(2) {
+    grid-row: span 1;
+  }
+
+  .card:nth-child(3) {
+    grid-row: span 1;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .card:nth-child(1)::after {
+    content: '';
+    background-image: url(./images/bg-pattern-quotation.svg);
+    position: absolute;
+    right: 80px;
+    width: 100px;
+    height: 100px;
+    z-index: 1;
+  }
+}
+
+@media screen and (min-width: 1210px) {
+  .main {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .card:nth-child(1) {
+    grid-column: span 2;
+    grid-row: 1;
+  }
+
+  .card:nth-child(2) {
+    grid-column: 3 / 4;
+    grid-row: 1;
+  }
+
+  .card:nth-child(3) {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+  }
+
+  .card:nth-child(4) {
+    grid-row: 2;
+    grid-column: span 2;
+  }
+
+  .card:nth-child(5) {
+    grid-row: span 2;
+  }
+}
