@@ -1,0 +1,253 @@
+/* ======================= *\
+* reset
+/* ======================= */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* ======================= *\
+* my css
+/* ======================= */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+:root {
+  --very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --desaturated-dark-blue: hsl(214, 17%, 51%);
+  --grayish-blue: hsl(212, 23%, 69%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+body {
+  height: 100vh;
+  background: var(--light-grayish-blue);
+  margin-block: 72px;
+  font-size: 13px;
+  display: grid;
+  place-items: center;
+}
+
+.main {
+  display: grid;
+  place-items: center;
+}
+
+.flex {
+  display: flex;
+  gap: var(--gap, 16px);
+  align-items: center;
+}
+
+/* ======================= *\
+* card
+/* ======================= */
+.card {
+  width: 90%;
+  margin-inline: auto;
+  background: #fff;
+  border-radius: .625rem;
+  overflow: hidden;
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  position: relative;
+}
+
+.card__img {
+  width: 100%;
+  height: 12.5rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card__text {
+  padding-inline: 32px;
+  padding-block-end: 24px;
+  margin-inline: auto;
+  max-width: 65ch;
+}
+
+.card__title {
+  color: var(--very-dark-grayish-blue);
+  font-weight: 700;
+  margin-block-start: 40px;
+}
+
+.card__desc {
+  color: var(--desaturated-dark-blue);
+}
+
+.card__author {
+  justify-content: space-between;
+  margin-block-start: 40px;
+
+  p {
+    margin: 0;
+  }
+
+  .card__author-name {
+    color: var(--very-dark-grayish-blue);
+    font-weight: 700;
+    font-weight: bold;
+  }
+
+  .card__post-time {
+    color: var(--desaturated-dark-blue);
+  }
+
+  .card__avatar {
+    border-radius: 50%;
+    width: 2.5rem;
+  }
+}
+
+/* button */
+.card__button-share {
+  padding: .5rem;
+  border-radius: 50%;
+  background-color: var(--light-grayish-blue);
+}
+
+/* .card:hover .card__share-details {
+  transform: translateY(0);
+} */
+.up {
+  transform: translateY(0) !important;
+}
+
+.card__button-share--dark {
+  color: #fff;
+  background-color: hsla(212, 23%, 69%, .6);
+
+  img {
+    /* turn to white color */
+    filter: brightness(0) invert(1);
+  }
+}
+
+/* ======================= *\
+* share details pop(mobile)
+/* ======================= */
+
+.card__share-details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  justify-content: space-between;
+  background-color: var(--very-dark-grayish-blue);
+  padding-inline: 32px;
+  height: 4rem;
+  transform: translateY(4.0625rem);
+  transition: transform .3s;
+
+  span {
+    color: var(--grayish-blue);
+    text-transform: uppercase;
+    letter-spacing: .3125rem;
+  }
+}
+
+/* ======================= *\
+* responsive
+/* ======================= */
+@media screen and (min-width: 700px) {
+  .card__share-details {
+    display: none;
+  }
+
+  .card {
+    display: flex;
+    /* display: grid; */
+    /* grid-template-columns: repeat(auto-fill, minmax(17.5rem, 1fr)); */
+  }
+
+  .card__img {
+    height: 100%;
+    width: 288px;
+    aspect-ratio: 1/1;
+    /* width: 30%; */
+  }
+
+  .card__text {
+    padding-inline: 2.5rem;
+    padding-block-end: 2rem;
+  }
+}
