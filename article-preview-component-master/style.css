@@ -98,10 +98,11 @@ textarea:not([rows]) {
 
 body {
   background: var(--light-grayish-blue);
-  margin-block: 4.5rem;
+  /* margin-block: 4.5rem; */
   font-size: .8125rem;
   display: grid;
-  place-items: center;
+  /* place-items: center; */
+  place-content: center;
   /* overflow: hidden; */
   /* prevent pop-share card overflow */
   overflow-x: hidden;
