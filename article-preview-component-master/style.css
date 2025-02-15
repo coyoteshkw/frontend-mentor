@@ -97,12 +97,14 @@ textarea:not([rows]) {
 }
 
 body {
-  height: 100vh;
   background: var(--light-grayish-blue);
   margin-block: 4.5rem;
   font-size: .8125rem;
   display: grid;
   place-items: center;
+  /* overflow: hidden; */
+  /* prevent pop-share card overflow */
+  overflow-x: hidden;
 }
 
 .main {
@@ -124,20 +126,22 @@ body {
   margin-inline: auto;
   background: #fff;
   border-radius: 10px;
-  overflow: hidden;
+  /* overflow: hidden; */
+  overflow-y: hidden;
+  /* overflow-x: hidden; */
   font-family: "Manrope", sans-serif;
   font-weight: 500;
   position: relative;
+  overflow-x: visible;
 }
 
-.card__img {
-
-  img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    object-position: center;
-  }
+.card__img img {
+  width: 100%;
+  /* no nice */
+  /* aspect-ratio: 2/1; */
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .card__text {
@@ -148,6 +152,7 @@ body {
 }
 
 .card__title {
+  font-size: 1.3em;
   color: var(--very-dark-grayish-blue);
   font-weight: 700;
   margin-block-start: 2.5rem;
@@ -186,6 +191,7 @@ body {
   padding: 8px;
   border-radius: 50%;
   background-color: var(--light-grayish-blue);
+  cursor: pointer;
 }
 
 /* .card:hover .card__share-details {
@@ -228,16 +234,22 @@ body {
   }
 }
 
+.card__share-desktop {
+  display: none;
+}
+
 /* ======================= *\
 * responsive
 /* ======================= */
-@media screen and (min-width: 43.75rem) {
+@media screen and (min-width: 800px) {
   .card__share-details {
     display: none;
   }
 
   .card {
     display: flex;
+    /* 否则会出现横轴的进度条, i don't know */
+    overflow-y: visible;
     /* can't handle this easily :( */
     /* display: grid; */
     /* grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); */
@@ -251,6 +263,8 @@ body {
     height: 100%;
     max-width: 18rem;
     aspect-ratio: 1/1;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     /* 100% will be too BIG */
     /* width: 100%; */
   }
@@ -259,5 +273,53 @@ body {
     width: 60%;
     padding-inline: 40px;
     padding-block-end: 32px;
+  }
+
+  .card__button-share {
+    position: relative;
+
+    &:hover,
+    &:focus {
+      background-color: var(--desaturated-dark-blue);
+    }
+
+    &:hover>img {
+      filter: brightness(0) invert(1);
+    }
+
+    &:hover .card__share-desktop {
+      display: flex;
+    }
+  }
+
+  .card__share-desktop {
+    /* display: none; */
+    position: absolute;
+    top: -5rem;
+    /* make it center */
+    left: 50%;
+    transform: translateX(-50%);
+    /* 将元素移回自身的中心 */
+    /* padding: 1.125rem 2.25rem; */
+    justify-content: center;
+    width: 240px;
+    height: 55px;
+    background-color: var(--very-dark-grayish-blue);
+    border-radius: 10px;
+
+    span {
+      color: var(--grayish-blue);
+      text-transform: uppercase;
+      letter-spacing: 5px;
+    }
+
+    /* small rect */
+    &::after {
+      position: absolute;
+      bottom: -30px;
+      content: '';
+      border: 15px solid transparent;
+      border-top-color: var(--very-dark-grayish-blue);
+    }
   }
 }
